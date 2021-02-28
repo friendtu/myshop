@@ -28,7 +28,15 @@
                         </a>
                     </td>
                     <td>{{ product.name }}</td>
-                    <td>{{ product.quantity }}</td>
+
+                    <td>
+                        <form action="{% url 'cart:cart_add' product.id %}" method="post">
+                            {% csrf_token %}
+                            {{ item.update_quantity_form }}
+                            <input type='submit' value='Update'>
+                        </form>
+                    </td>
+                    
                     <td>
                         <a href="{% url 'cart:cart_remove' product.id %}">Remove</a>
                     </td>
