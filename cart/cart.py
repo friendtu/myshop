@@ -5,6 +5,7 @@ from decimal import Decimal
 class Cart(object):
     session=None
     cart=None
+    len=0
 
     def __init__ (self,request):
         self.session=request.session
