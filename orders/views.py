@@ -7,11 +7,11 @@ from .models import Order,OrderItem
 def order_create(request):
     cart=Cart(request)
     if request.method=='POST':
-        form=OrderCreateForm(reqyest.POST)
+        form=OrderCreateForm(request.POST)
         if form.is_valid():
             order=form.save()
             for item in cart:
-                orderitem=OrderItem.objects.create(order=order,price=item.price,product=item.product,quantity=item.quantity)
+                OrderItem.objects.create(order=order,price=item['price'],product=item['product'],quantity=item['quantity'])
             cart.clear()
             return render(request,'orders/created.html',
                                     {'order':order})
