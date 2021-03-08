@@ -14,7 +14,7 @@ def order_create(request):
             for item in cart:
                 OrderItem.objects.create(order=order,price=item['price'],product=item['product'],quantity=item['quantity'])
             cart.clear()
-            order_created.delay(order.id)
+            #order_created.delay(order.id)
             request.session['order_id']=order.id 
             return redirect(reverse('payment:process'))
             

@@ -24,9 +24,9 @@
     <script>
         form=document.querySelector('#payment');
         var submit=document.querySelector('input[type="submit"]');
-        
+
         braintree.client.create({
-            authorization:'sandbox_ktdjydgb_c8ysmy3956rnqhms'
+                authorization: '{{ client_token }}'
             },
             function(clientErr,clientInstance){
                 if (clientErr) {
@@ -55,7 +55,7 @@
                             placeholder: '10/2022'
                             }
                         }
-                    },function(hostedFieldsErr,instance){
+                    },function(hostedFieldsErr,hostedFieldsInstance){
                         if(hostedFieldsErr) {
                             console.error(hostedFieldsErr);
                             return;
@@ -64,15 +64,14 @@
                         submit.removeAttribute('disabled');
                         form.addEventListener('submit',function(event){
                             event.preventDefault();
-                            instance.tokenlize(function(tokenlize,payload){
-                                if(tokenlizeErr) {
-                                    console.error(tokenlizeErr);
+                            hostedFieldsInstance.tokenize(function(tokenizeErr,payload){
+                                if(tokenizeErr) {
+                                    console.error(tokenizeErr);
                                     return;
                                 }
                                 document.getElementById('nonce').value=payload.nonce;
                                 document.getElementById('payment').submit();
                             });
-
                         });
                     });
                 }
