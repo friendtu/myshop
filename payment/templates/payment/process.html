@@ -24,9 +24,11 @@
     <script>
         form=document.querySelector('#payment');
         var submit=document.querySelector('input[type="submit"]');
+        
         braintree.client.create({
             authorization:'sandbox_ktdjydgb_c8ysmy3956rnqhms'
-            }),function(clientErr,clientInstance){
+            },
+            function(clientErr,clientInstance){
                 if (clientErr) {
                     console.error(clientErr);
                     return;
@@ -53,7 +55,7 @@
                             placeholder: '10/2022'
                             }
                         }
-                    },function(hostFieldsErr,instance){
+                    },function(hostedFieldsErr,instance){
                         if(hostedFieldsErr) {
                             console.error(hostedFieldsErr);
                             return;
@@ -72,21 +74,8 @@
                             });
 
                         });
-
-
-
-
-
-                    }
-
-
-
-                    
-
-                })
-
-            }
-
-
+                    });
+                }
+            );
     </script>
 {% endblock %}
