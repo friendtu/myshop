@@ -128,7 +128,6 @@ MEDIA_URL="/media/"
 MEDIA_ROOT=os.path.join(BASE_DIR,'media/')
 
 CART_SESSION_ID='cart'
-
 BRAINTREE_MERCHANT_ID="c8ysmy3956rnqhms"
 BRAINTREE_PUBLIC_KEY="b74vs7gkt33gsxyf"
 BRAINTREE_PRIVATE_KEY="3d6098d7bc6611fcfea8303799338716"
@@ -140,3 +139,6 @@ Configuration.configure=(
     BRAINTREE_PUBLIC_KEY,
     BRAINTREE_PRIVATE_KEY
 )
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
