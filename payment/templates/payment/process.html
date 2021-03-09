@@ -6,14 +6,15 @@
     <form action="." id='payment' method='post'>
         <label for="card-number">Card Number</label>
         <div id="card-number" class="field"></div>
+
         <label for="cvv">CVV</label>
-        <div id="cvv"></div>
+        <div id="cvv" class="field"></div>
       
         <label for="expiration-date">Expiration Date</label>
-        <div id="expiration-date" class=field></div>
-      
-        <div id="checkout-message"></div>
-      
+        <div id="expiration-date" class="field"></div>
+        
+        
+             
         {% csrf_token %}
         <input type='hidden' id='nonce' name='payment_method_nonce' value="">
         <input type="submit" value="Pay" disabled >
@@ -34,28 +35,30 @@
                     return;
                 }
                 
-                braintree.hostedFields.create({
-                    client:clientInstance,
-                    styles: {
-                        'input': {'font-size': '14px'},
-                        'input.invalid': {'color': 'red'},
-                        'input.valid': {'color': 'green' }
-                        },
-                    fields:{
-                        number: {
-                            selector: '#card-number',
-                            placeholder: '4111 1111 1111 1111'
+                braintree.hostedFields.create(
+                    {
+                        client:clientInstance,
+                        styles: {
+                            'input': {'font-size': '14px'},
+                            'input.invalid': {'color': 'red'},
+                            'input.valid': {'color': 'green' }
                             },
-                        cvv: {
-                            selector: '#cvv',
-                            placeholder: '123'
-                            },
-                        expirationDate: {
-                            selector: '#expiration-date',
-                            placeholder: '10/2022'
+                        fields:{
+                            number: {
+                                selector: '#card-number',
+                                placeholder: '4111 1111 1111 1111'
+                                },
+                            cvv: {
+                                selector: '#cvv',
+                                placeholder: '123'
+                                },
+                            expirationDate: {
+                                selector: '#expiration-date',
+                                placeholder: '10/2022'
+                                }
                             }
-                        }
-                    },function(hostedFieldsErr,hostedFieldsInstance){
+                    },
+                    function(hostedFieldsErr,hostedFieldsInstance){
                         if(hostedFieldsErr) {
                             console.error(hostedFieldsErr);
                             return;
@@ -69,6 +72,7 @@
                                     console.error(tokenizeErr);
                                     return;
                                 }
+                                console.log('got a nonce:'+payload.nonce);
                                 document.getElementById('nonce').value=payload.nonce;
                                 document.getElementById('payment').submit();
                             });

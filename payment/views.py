@@ -12,8 +12,8 @@ def payment_process(request):
 
     if request.method=='POST':
         nonce=request.POST.get('payment_method_nonce',None)
-        result=braintree.Transactoin.sale({
-            'amount':order.get_total_cost(),
+        result=braintree.Transaction.sale({
+            'amount':'{:.2f}'.format(order.get_total_cost()),
             'payment_method_nonce':nonce,
             "options": {
                 "submit_for_settlement": True
@@ -52,6 +52,6 @@ def payment_done(request):
     return render(request,'payment/done.html')
 
 def payment_canceled(request):
-    return render(request,'payment/canceled')
+    return render(request,'payment/canceled.html')
 
 
