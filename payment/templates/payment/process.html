@@ -13,7 +13,7 @@
         <label for="expiration-date">Expiration Date</label>
         <div id="expiration-date" class="field"></div>
         
-        
+
              
         {% csrf_token %}
         <input type='hidden' id='nonce' name='payment_method_nonce' value="">
@@ -27,16 +27,10 @@
         var submit=document.querySelector('input[type="submit"]');
 
         braintree.client.create({
-                authorization: '{{ client_token }}'
-            },
-            function(clientErr,clientInstance){
-                if (clientErr) {
-                    console.error(clientErr);
-                    return;
-                }
-                
-                braintree.hostedFields.create(
-                    {
+            authorization: '{{ client_token }}'
+        }).then(
+            function(clientInstance){
+                option={
                         client:clientInstance,
                         styles: {
                             'input': {'font-size': '14px'},
@@ -57,28 +51,20 @@
                                 placeholder: '10/2022'
                                 }
                             }
-                    },
-                    function(hostedFieldsErr,hostedFieldsInstance){
-                        if(hostedFieldsErr) {
-                            console.error(hostedFieldsErr);
-                            return;
-                        }
-
-                        submit.removeAttribute('disabled');
-                        form.addEventListener('submit',function(event){
-                            event.preventDefault();
-                            hostedFieldsInstance.tokenize(function(tokenizeErr,payload){
-                                if(tokenizeErr) {
-                                    console.error(tokenizeErr);
-                                    return;
-                                }
-                                console.log('got a nonce:'+payload.nonce);
-                                document.getElementById('nonce').value=payload.nonce;
-                                document.getElementById('payment').submit();
-                            });
+                    };
+                    return braintree.hostedFields.create(option);
+            }
+        ).then(function(hostedFieldsInstance){
+            submit.removeAttribute('disabled');
+                form.addEventListener('submit',function(event){
+                    event.preventDefault();
+                    hostedFieldsInstance.tokenize()
+                        .then(function(payload){   
+                            console.log('got a nonce:'+payload.nonce);
+                            document.getElementById('nonce').value=payload.nonce;
+                            document.getElementById('payment').submit();
                         });
-                    });
-                }
-            );
+                });
+        });
     </script>
 {% endblock %}
