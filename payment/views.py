@@ -28,8 +28,8 @@ def payment_process(request):
             return redirect('payment:canceled')
 
     else:
-        #client_token=braintree.ClientToken.generate()
-        client_token="sandbox_ktdjydgb_c8ysmy3956rnqhms"
+        client_token=braintree.ClientToken.generate()
+        #client_token="sandbox_ktdjydgb_c8ysmy3956rnqhms"
 
         '''
         gateway = braintree.BraintreeGateway(
@@ -37,20 +37,21 @@ def payment_process(request):
                 braintree.Environment.Sandbox,
                 merchant_id="c8ysmy3956rnqhms",
                 public_key="b74vs7gkt33gsxyf",
-                private_key="3d6098d7bc6611fcfea8303799338716s"
+                private_key="3d6098d7bc6611fcfea8303799338716"
             )
         )
         client_token = gateway.client_token.generate()
         '''
+        
         return render(request,'payment/process.html',{
                             'order':order,
                             'client_token':client_token
                     })
 
 def payment_done(request):
-    pass
+    return render(request,'payment/done.html')
 
 def payment_canceled(request):
-    pass
+    return render(request,'payment/canceled')
 
 
