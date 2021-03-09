@@ -3,6 +3,14 @@
 
 {% block content %}
     <h1> Pay by credit card</h1>
+    <form action="." id='dropin_payment' method='post'>
+        <div id="dropin-container"></div>
+        {% csrf_token %}
+        <input type='hidden' id='dropin_nonce' name='payment_method_nonce' value="">
+        <input type="submit" id='dropin_submit' value="Pay" disabled >
+    </form>
+
+
     <form action="." id='payment' method='post'>
         <label for="card-number">Card Number</label>
         <div id="card-number" class="field"></div>
@@ -17,17 +25,38 @@
              
         {% csrf_token %}
         <input type='hidden' id='nonce' name='payment_method_nonce' value="">
-        <input type="submit" value="Pay" disabled >
+        <input type="submit" id='submit' value="Pay" disabled >
     </form>
+
 
     <script src="https://js.braintreegateway.com/web/3.44.2/js/client.min.js"></script>
     <script src="https://js.braintreegateway.com/web/3.44.2/js/hosted-fields.min.js"></script>
+    <script src="https://js.braintreegateway.com/web/dropin/1.26.1/js/dropin.min.js"></script>
     <script>
         form=document.querySelector('#payment');
-        var submit=document.querySelector('input[type="submit"]');
+        dropin_form=document.querySelector('#dropin_payment');
+        var submit=document.querySelector('#submit');
+        var dropin_submit=document.querySelector('#dropin_submit');
+
+        braintree.dropin.create({
+                authorization: '{{ client_token }}',
+                container: '#dropin-container'
+            }).then(function(dropinInstance){
+                dropin_submit.removeAttribute('disabled');
+                dropin_form.addEventListener('submit',event =>{
+                    event.preventDefault();
+                    dropinInstance.requestPaymentMethod().then(payload=>{
+                        document.getElementById('dropin_nonce').value = payload.nonce;
+                        dropin_form.submit();
+                    });
+                });
+            }).catch(function(result){
+                console.error(result);
+            });
+
 
         braintree.client.create({
-            authorization: '{{ client_token }}'
+            authorization: '{{ client_token }}',
         }).then(
             function(clientInstance){
                 option={
@@ -56,7 +85,7 @@
             }
         ).then(function(hostedFieldsInstance){
             submit.removeAttribute('disabled');
-                form.addEventListener('submit',function(event){
+            form.addEventListener('submit',function(event){
                     event.preventDefault();
                     hostedFieldsInstance.tokenize()
                         .then(function(payload){   
@@ -66,5 +95,6 @@
                         });
                 });
         });
+
     </script>
 {% endblock %}
