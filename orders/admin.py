@@ -2,6 +2,9 @@ from django.contrib import admin
 from .models import Order,OrderItem
 import csv,datetime
 from django.http import HttpResponse 
+from django.utils.safestring import mark_safe
+from django.urls import reverse
+
 
 # Register your models here.
 
@@ -11,7 +14,7 @@ class OrderItemInline(admin.TabularInline):
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
-    list_display=['id','first_name','last_name','email','address','city','postal_code','paid','created','updated']
+    list_display=['id','first_name','last_name','email','address','city','postal_code','paid','created','updated','order_detail']
     list_filter=['paid','created','updated']
     actions = ['export_to_csv']
     inlines=[OrderItemInline,]
@@ -37,6 +40,10 @@ class OrderAdmin(admin.ModelAdmin):
             writer.writerow(date_row)
         return response
 
+    def order_detail(self,obj):
+        return mark_safe("<a href='{}'>View</a>".format(reverse("orders:admin_order_detail",args=[obj.id] )))
+
     export_to_csv.short_description="Export to CSV"
+    order_detail.short_description='Order Detail'
 
 
