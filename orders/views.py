@@ -3,6 +3,7 @@ from cart.cart import Cart
 from .forms import OrderCreateForm
 from .models import Order,OrderItem
 from .tasks import order_created
+from django.contrib.admin.views.decorators import staff_member_required
 
 # Create your views here.
 def order_create(request):
@@ -27,7 +28,7 @@ def order_create(request):
                                 })
 
 
-
+@staff_member_required
 def admin_order_detail(request,order_id):
     order=get_object_or_404(Order,id=order_id)
     return render(request,'admin/orders/order/detail.html',{
