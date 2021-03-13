@@ -1,6 +1,10 @@
 from django.shortcuts import render,get_object_or_404,redirect
 import braintree
 from orders.models import Order
+from django.core.mail import EmailMessage
+from django.template.loader import render_to_string
+import weasyprint
+from django.conf import settings
 
 # Create your views here.
 
@@ -23,6 +27,20 @@ def payment_process(request):
             order.paid=True
             order.braintree_id=result.transaction.id
             order.save()
+            #create mail of invoice
+            subject="My shop - invoice no. {}".format(order.id)
+            message='Please, find attateched the invoice for your recent purchases.'
+            email=EmailMessage(subject,message,'admin@myshop.com',[order.email])
+
+            html=render_to_string('admin/orders/order/pdf.html',{
+                    'order':order
+                })
+            stylesheets=[weasyprint.CSS(settings.STATIC_ROOT+'css/pdf.css')]
+            out=weasyprint.HTML(string=html).write_pdf(stylesheets=stylesheets)
+
+            email.attach('order_{}'.format(order.id),out,'application/pdf')
+            email.send()
+
             return redirect('payment:done')
         else:
             return redirect('payment:canceled')
