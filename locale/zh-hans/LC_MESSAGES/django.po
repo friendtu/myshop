@@ -1,0 +1,135 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-03-15 21:36+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: .\cart\forms.py:6 .\cart\templates\cart\detail.html:16
+msgid "Quantity"
+msgstr "数量"
+
+#: .\cart\templates\cart\detail.html:6 .\cart\templates\cart\detail.html:10
+#, fuzzy
+#| msgid "Your cart"
+msgid "Your shopping cart"
+msgstr "你的购物车"
+
+#: .\cart\templates\cart\detail.html:14
+msgid "Image"
+msgstr "图像"
+
+#: .\cart\templates\cart\detail.html:15
+msgid "Product"
+msgstr "产品"
+
+#: .\cart\templates\cart\detail.html:17 .\cart\templates\cart\detail.html:43
+msgid "Remove"
+msgstr "删除"
+
+#: .\cart\templates\cart\detail.html:18
+msgid "Unit price"
+msgstr "单位价格"
+
+#: .\cart\templates\cart\detail.html:19
+msgid "Price"
+msgstr "价格"
+
+#: .\cart\templates\cart\detail.html:38
+msgid "Update"
+msgstr "更新"
+
+#: .\cart\templates\cart\detail.html:53
+#, fuzzy
+msgid "Subtotal"
+msgstr "小计"
+
+#: .\cart\templates\cart\detail.html:59
+#, fuzzy, python-format
+msgid ""
+"\n"
+"                            \"%(code)s\" coupon %(discount)s%%off}\n"
+"                        "
+msgstr ""
+"\n"
+"                            \"%(code)s\" 优惠券 %(discount)s%%折扣}\n"
+"                        "
+
+#: .\cart\templates\cart\detail.html:71
+msgid "Total"
+msgstr "总共"
+
+#: .\cart\templates\cart\detail.html:82
+msgid "Apply"
+msgstr "使用"
+
+#: .\cart\templates\cart\detail.html:88
+msgid "Continue shopping"
+msgstr "继续购物"
+
+#: .\cart\templates\cart\detail.html:89
+msgid "Checkout"
+msgstr "买单"
+
+#: .\coupans\forms.py:5
+msgid "Coupon"
+msgstr "优惠券"
+
+#: .\myshop\settings.py:155
+msgid "English"
+msgstr "英文"
+
+#: .\myshop\settings.py:156
+msgid "Simple Chinese"
+msgstr "中文"
+
+#: .\shop\templates\shop\base.html:8 .\shop\templates\shop\base.html:13
+msgid "My shop"
+msgstr "购物"
+
+#: .\shop\templates\shop\base.html:19
+msgid "Your cart"
+msgstr "你的购物车"
+
+#: .\shop\templates\shop\base.html:21
+#, python-format
+msgid ""
+"\n"
+"                            %(total_items)s item%(total_item_plural)s\n"
+"                            $%(total_price)s\n"
+"                        "
+msgstr ""
+"\n"
+"                            %(total_items)s 个%(total_item_plural)s\n"
+"                            ￥%(total_price)s\n"
+"                        "
+
+#: .\shop\templates\shop\base.html:27
+msgid "Your car is empty."
+msgstr "购物车是空的"
+
+#: .\shop\templates\shop\product\list.html:8
+#: .\shop\templates\shop\product\list.html:27
+#, fuzzy
+msgid "Products"
+msgstr "产品"
+
+#: .\shop\templates\shop\product\list.html:14
+msgid "Categories"
+msgstr "分类"
+
+#: .\shop\templates\shop\product\list.html:17
+msgid "All"
+msgstr "全部"
