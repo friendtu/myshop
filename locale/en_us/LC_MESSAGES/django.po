@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-15 21:36+0800\n"
+"POT-Creation-Date: 2021-03-16 21:49+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,118 +19,152 @@ msgstr ""
 
 #: .\cart\forms.py:6 .\cart\templates\cart\detail.html:16
 msgid "Quantity"
-msgstr "数量"
+msgstr ""
 
 #: .\cart\templates\cart\detail.html:6 .\cart\templates\cart\detail.html:10
-#, fuzzy
-#| msgid "Your cart"
 msgid "Your shopping cart"
-msgstr "你的购物车"
+msgstr ""
 
 #: .\cart\templates\cart\detail.html:14
 msgid "Image"
-msgstr "图像"
+msgstr ""
 
 #: .\cart\templates\cart\detail.html:15
 msgid "Product"
-msgstr "产品"
+msgstr ""
 
 #: .\cart\templates\cart\detail.html:17 .\cart\templates\cart\detail.html:43
 msgid "Remove"
-msgstr "删除"
+msgstr ""
 
 #: .\cart\templates\cart\detail.html:18
 msgid "Unit price"
-msgstr "单位价格"
+msgstr ""
 
 #: .\cart\templates\cart\detail.html:19
 msgid "Price"
-msgstr "价格"
+msgstr ""
 
 #: .\cart\templates\cart\detail.html:38
 msgid "Update"
-msgstr "更新"
+msgstr ""
 
 #: .\cart\templates\cart\detail.html:53
-#, fuzzy
 msgid "Subtotal"
-msgstr "小计"
+msgstr ""
 
 #: .\cart\templates\cart\detail.html:59
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "\n"
-"                            \"%(code)s\" coupon %(discount)s%%off}\n"
+"                            \"%(code)s\" coupon %(discount)s%%off\n"
 "                        "
 msgstr ""
-"\n"
-"                            \"%(code)s\" 优惠券 %(discount)s%%折扣}\n"
-"                        "
 
 #: .\cart\templates\cart\detail.html:71
 msgid "Total"
-msgstr "总共"
+msgstr ""
 
 #: .\cart\templates\cart\detail.html:82
 msgid "Apply"
-msgstr "使用"
+msgstr ""
 
 #: .\cart\templates\cart\detail.html:88
 msgid "Continue shopping"
-msgstr "继续购物"
+msgstr ""
 
 #: .\cart\templates\cart\detail.html:89
 msgid "Checkout"
-msgstr "买单"
+msgstr ""
 
 #: .\coupans\forms.py:5
 msgid "Coupon"
-msgstr "优惠券"
+msgstr ""
+
+#: .\coupans\urls.py:7
+msgid "apply/"
+msgstr ""
+
+#: .\myshop\settings.py:154
+msgid "English"
+msgstr ""
 
 #: .\myshop\settings.py:155
-msgid "English"
-msgstr "英文"
-
-#: .\myshop\settings.py:156
 msgid "Simple Chinese"
-msgstr "中文"
+msgstr ""
+
+#: .\myshop\urls.py:28
+msgid "admin/"
+msgstr ""
+
+#: .\myshop\urls.py:29
+msgid "cart/"
+msgstr ""
+
+#: .\myshop\urls.py:30
+msgid "orders/"
+msgstr ""
+
+#: .\myshop\urls.py:31
+msgid "payment/"
+msgstr ""
+
+#: .\myshop\urls.py:32
+msgid "coupous/"
+msgstr ""
+
+#: .\payment\urls.py:7
+msgid "process/"
+msgstr ""
+
+#: .\payment\urls.py:8
+msgid "done/"
+msgstr ""
+
+#: .\payment\urls.py:9
+msgid "canceled/"
+msgstr ""
 
 #: .\shop\templates\shop\base.html:8 .\shop\templates\shop\base.html:13
 msgid "My shop"
-msgstr "购物"
+msgstr ""
 
 #: .\shop\templates\shop\base.html:19
 msgid "Your cart"
-msgstr "你的购物车"
+msgstr ""
 
 #: .\shop\templates\shop\base.html:21
 #, python-format
 msgid ""
 "\n"
-"                            %(total_items)s item%(total_item_plural)s\n"
+"                            %(total_items)s item \n"
 "                            $%(total_price)s\n"
 "                        "
-msgstr ""
+msgid_plural ""
 "\n"
-"                            %(total_items)s 个%(total_item_plural)s\n"
-"                            ￥%(total_price)s\n"
+"                            %(total_items)s items\n"
+"                            $%(total_price)s\n"
 "                        "
+msgstr[0] ""
+msgstr[1] ""
 
-#: .\shop\templates\shop\base.html:27
+#: .\shop\templates\shop\base.html:30
 msgid "Your car is empty."
-msgstr "购物车是空的"
+msgstr ""
 
-#: .\shop\templates\shop\product\list.html:8
-#: .\shop\templates\shop\product\list.html:27
-#, fuzzy
-#| msgid "Product"
+#: .\shop\templates\shop\product\list.html:9
+#: .\shop\templates\shop\product\list.html:29
 msgid "Products"
-msgstr "产品"
+msgstr ""
 
-#: .\shop\templates\shop\product\list.html:14
+#: .\shop\templates\shop\product\list.html:16
 msgid "Categories"
 msgstr ""
 
-#: .\shop\templates\shop\product\list.html:17
+#: .\shop\templates\shop\product\list.html:19
 msgid "All"
+msgstr ""
+
+#: .\shop\templates\shop\product\list.html:40
+msgid "$"
 msgstr ""

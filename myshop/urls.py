@@ -18,18 +18,19 @@ from django.urls import path,include
 from django.conf.urls.static import static
 from django.conf import settings
 from django.conf.urls.i18n import i18n_patterns
+from django.utils.translation import gettext as _
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('rosetta/',include('rosetta.urls')),
 ]    
 
 urlpatterns+= i18n_patterns(
-    path('cart/',include('cart.urls',namespace='cart')),
-    path('orders/',include('orders.urls',namespace='orders')),
-    path('payment/',include('payment.urls',namespace='payment')),
-    path('coupous/',include('coupans.urls',namespace='coupons')),
+    path(_('admin/'), admin.site.urls),
+    path(_('cart/'),include('cart.urls',namespace='cart')),
+    path(_('orders/'),include('orders.urls',namespace='orders')),
+    path(_('payment/'),include('payment.urls',namespace='payment')),
+    path(_('coupous/'),include('coupans.urls',namespace='coupons')),
+    path('rosetta/',include('rosetta.urls')),
     path('',include('shop.urls',namespace='shop')),
 )
 

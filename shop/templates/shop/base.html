@@ -18,8 +18,11 @@
                 {% if total_items > 0 %}
                     {% trans "Your cart" %}:
                     <a href="{% url 'cart:cart_detail' %}">
-                        {% blocktrans with total_item_plural=total_items|pluralize total_price=cart.get_total_price %}
-                            {{total_items}} item{{ total_item_plural }}
+                        {% blocktrans count total_items=total_items with total_price=cart.get_total_price %}
+                            {{total_items}} item 
+                            ${{ total_price }}
+                        {% plural %}
+                            {{total_items}} items
                             ${{ total_price }}
                         {% endblocktrans %}
                     </a>

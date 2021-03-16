@@ -1,8 +1,14 @@
 {% extends "shop/base.html" %}
+{% load i18n %}
 {% load static %}
 
+
+
+
 {% block title %} 
-    {% if category %} {{ category.name }}    {% else %}        {% trans "Products" %}    {% endif %}
+    {% if category %}{{ category.name }}{% else %}{% trans "Products" %}{% endif %}</br>
+    {% get_current_language as LANGUAGE_CODE %}
+    Language code: {{ LANGUAGE_CODE }}<br>
 {% endblock %}
 
 {% block content %}
@@ -20,7 +26,6 @@
         </ul>
     </div>
     <div id="main" class="product-list">
-        <h1> {% if category %} {{category.name}} {% else %} {% trans "Products" %} {% endif %}</h1>
         <h1>{% if category %}{{ category.name }}{% else %} {% trans "Products" %} {% endif %}</h1>
         {% for product in products %}
             <div class="item">
@@ -32,7 +37,7 @@
                               {% endif %}">
                 </a>
                 <br>
-                ${{ product.price}}
+                {% trans "$" %}{{ product.price}}
             </div>
         {% endfor %}
 
