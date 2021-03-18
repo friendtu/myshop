@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-18 14:25+0800\n"
+"POT-Creation-Date: 2021-03-18 14:51+0800\n"
 "PO-Revision-Date: 2021-03-16 11:37+0000\n"
 "Last-Translator: b'  <friendtu@gmail.com>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -86,10 +86,8 @@ msgid "Coupon"
 msgstr "优惠券"
 
 #: .\coupans\urls.py:7
-#, fuzzy
-#| msgid "Apply"
 msgid "apply/"
-msgstr "使用"
+msgstr "使用/"
 
 #: .\myshop\settings.py:154
 msgid "English"
@@ -118,6 +116,34 @@ msgstr "支付/"
 #: .\myshop\urls.py:32
 msgid "coupous/"
 msgstr "优惠券/"
+
+#: .\payment\templates\payment\canceled.html:4
+msgid "Your payment has not been processed"
+msgstr "您的支付还未处理"
+
+#: .\payment\templates\payment\done.html:4
+msgid "Your payment was successful"
+msgstr "您已支付成功"
+
+#: .\payment\templates\payment\process.html:7
+msgid "Pay by credit card"
+msgstr "使用信用卡支付"
+
+#: .\payment\templates\payment\process.html:20
+msgid "Card Number"
+msgstr "卡号"
+
+#: .\payment\templates\payment\process.html:23
+msgid "CVV"
+msgstr "CVV"
+
+#: .\payment\templates\payment\process.html:26
+msgid "Expiration Date"
+msgstr "截止日期"
+
+#: .\payment\templates\payment\process.html:33
+msgid "Pay"
+msgstr "支付"
 
 #: .\payment\urls.py:7
 msgid "process/"
@@ -171,7 +197,6 @@ msgid "Your car is empty."
 msgstr "购物车是空的"
 
 #: .\shop\templates\shop\product\detail.html:20
-#| msgid "Your cart"
 msgid "Add to cart"
 msgstr "加入购物车"
 

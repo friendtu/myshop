@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-18 14:25+0800\n"
+"POT-Creation-Date: 2021-03-18 14:51+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -112,6 +112,34 @@ msgstr ""
 
 #: .\myshop\urls.py:32
 msgid "coupous/"
+msgstr ""
+
+#: .\payment\templates\payment\canceled.html:4
+msgid "Your payment has not been processed"
+msgstr ""
+
+#: .\payment\templates\payment\done.html:4
+msgid "Your payment was successful"
+msgstr ""
+
+#: .\payment\templates\payment\process.html:7
+msgid "Pay by credit card"
+msgstr ""
+
+#: .\payment\templates\payment\process.html:20
+msgid "Card Number"
+msgstr ""
+
+#: .\payment\templates\payment\process.html:23
+msgid "CVV"
+msgstr ""
+
+#: .\payment\templates\payment\process.html:26
+msgid "Expiration Date"
+msgstr ""
+
+#: .\payment\templates\payment\process.html:33
+msgid "Pay"
 msgstr ""
 
 #: .\payment\urls.py:7
