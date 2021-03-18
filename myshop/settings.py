@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'orders.apps.OrdersConfig',
     'payment.apps.PaymentConfig',
     'coupans.apps.CoupansConfig',
+    'parler',
     'rosetta',
 ]
 
@@ -154,3 +155,14 @@ LANGUAGES=[
     ('en', _('English')),
     ('zh-hans',_('Simple Chinese'))
 ]
+
+PARLER_LANGUAGES = {
+    None: (
+        {'code': 'en',},
+        {'code': 'zh-hans',},
+    ),
+    'default': {
+        'fallbacks': ['en'],          # defaults to PARLER_DEFAULT_LANGUAGE_CODE
+        'hide_untranslated': False,   # the default; let .active_translations() return fallbacks too.
+    }
+}
