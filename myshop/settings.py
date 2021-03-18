@@ -151,6 +151,6 @@ LOCALE_PATHS = (
 )
 
 LANGUAGES=[
-    ('en-us', _('English')),
+    ('en', _('English')),
     ('zh-hans',_('Simple Chinese'))
 ]

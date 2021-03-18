@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-16 21:49+0800\n"
+"POT-Creation-Date: 2021-03-18 12:25+0800\n"
 "PO-Revision-Date: 2021-03-16 11:37+0000\n"
 "Last-Translator: b'  <friendtu@gmail.com>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -135,11 +135,15 @@ msgstr "取消/"
 msgid "My shop"
 msgstr "我的商店"
 
-#: .\shop\templates\shop\base.html:19
+#: .\shop\templates\shop\base.html:21
+msgid "languages"
+msgstr "语言"
+
+#: .\shop\templates\shop\base.html:37
 msgid "Your cart"
 msgstr "你的购物车"
 
-#: .\shop\templates\shop\base.html:21
+#: .\shop\templates\shop\base.html:39
 #, python-format
 msgid ""
 "\n"
@@ -162,7 +166,7 @@ msgstr[1] ""
 "￥%(total_price)s\n"
 "                        "
 
-#: .\shop\templates\shop\base.html:30
+#: .\shop\templates\shop\base.html:48
 msgid "Your car is empty."
 msgstr "购物车是空的"
 
