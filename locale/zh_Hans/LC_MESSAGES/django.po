@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-18 12:25+0800\n"
+"POT-Creation-Date: 2021-03-18 14:25+0800\n"
 "PO-Revision-Date: 2021-03-16 11:37+0000\n"
 "Last-Translator: b'  <friendtu@gmail.com>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -169,6 +169,11 @@ msgstr[1] ""
 #: .\shop\templates\shop\base.html:48
 msgid "Your car is empty."
 msgstr "购物车是空的"
+
+#: .\shop\templates\shop\product\detail.html:20
+#| msgid "Your cart"
+msgid "Add to cart"
+msgstr "加入购物车"
 
 #: .\shop\templates\shop\product\list.html:9
 #: .\shop\templates\shop\product\list.html:29
