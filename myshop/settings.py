@@ -166,3 +166,7 @@ PARLER_LANGUAGES = {
         'hide_untranslated': False,   # the default; let .active_translations() return fallbacks too.
     }
 }
+
+REDIS_HOST='localhost'
+REDIS_PORT=6379
+REDIS_DB=1

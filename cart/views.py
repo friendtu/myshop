@@ -5,6 +5,7 @@ from shop.models import Product
 from django.shortcuts import get_object_or_404
 from .forms import CartAddProductForm
 from coupans.forms import CouponApplyForm
+from shop.recommender import Recommender
 
 # Create your views here.
 
@@ -14,9 +15,14 @@ def cart_detail(request):
         item['update_quantity_form']=CartAddProductForm(initial={'quantity':item['quantity'],'update':True})
 
     coupon_apply_form=CouponApplyForm()
+    r=Recommender()
+    products=[item['product'] for item in cart]
+    recommented_products=r.suggest_products_for(products,max_results=4)
+
     return render(request,'cart/detail.html',{
         'cart':cart,
-        'coupon_apply_form':coupon_apply_form
+        'coupon_apply_form':coupon_apply_form,
+        'recommented_products':recommented_products
     })
 
 @require_POST

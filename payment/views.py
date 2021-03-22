@@ -5,6 +5,7 @@ from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
 import weasyprint
 from django.conf import settings
+from shop.recommender import Recommender
 
 # Create your views here.
 
@@ -27,6 +28,12 @@ def payment_process(request):
             order.paid=True
             order.braintree_id=result.transaction.id
             order.save()
+
+            #record products to be bought together
+            r=Recommender()
+            products=[item.product for item in order.items]
+            r.products_bought(products)
+
             #create mail of invoice
             subject="My shop - invoice no. {}".format(order.id)
             message='Please, find attateched the invoice for your recent purchases.'
