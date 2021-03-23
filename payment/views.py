@@ -31,7 +31,7 @@ def payment_process(request):
 
             #record products to be bought together
             r=Recommender()
-            products=[item.product for item in order.items]
+            products=[item.product for item in order.items.all()]
             r.products_bought(products)
 
             #create mail of invoice
